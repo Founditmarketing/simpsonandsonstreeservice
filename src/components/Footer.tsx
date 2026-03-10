@@ -1,4 +1,4 @@
-import { TreePine, Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,28 +8,30 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 relative z-10">
         <div className="flex flex-col gap-6">
           <a href="/" className="flex items-center gap-2 group">
-            <div className="bg-forest p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-              <TreePine className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-xl tracking-tight leading-none text-white">SIMPSON & SONS</span>
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-safety">Tree Service</span>
-            </div>
+            <img
+              src="/images/logo-resized.png"
+              alt="Simpson & Sons Tree Service"
+              className="h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </a>
           <p className="text-neutral-400 leading-relaxed text-sm">
-            Expert tree care in Big Lake, Monticello, and surrounding MN regions. 
-            Family-owned since 1995, committed to safety and excellence.
+            <h4 className="font-bold text-lg mb-1 text-white">
+              Reliable work by a local team
+            </h4>
+            Our tree company has been serving clients within a 50-mile radius of Big Lake, MN for over four years. Home and business owners alike turn to us for our top-quality work. When you hire us, you'll get great results and better customer care. Meet with a tree pro today to get started on your tree care project.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-safety transition-colors">
+            <a href="https://www.facebook.com/people/Simpson-Sons-Tree-Service/100087185520117/?rdid=3W214dFvX2tJsji7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15hYPBHcWR%2F" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-safety transition-colors">
               <Facebook className="w-5 h-5" />
             </a>
+            {/*
             <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-safety transition-colors">
               <Instagram className="w-5 h-5" />
             </a>
             <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-safety transition-colors">
               <Twitter className="w-5 h-5" />
             </a>
+            */}
           </div>
         </div>
 
@@ -63,7 +65,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-xs text-neutral-500 uppercase tracking-widest font-bold mb-1">Call Us</p>
-                <a href="tel:763-263-0000" className="text-white font-bold hover:text-safety transition-colors">(763) 263-0000</a>
+                <a href="tel:763-482-6247" className="text-white font-bold hover:text-safety transition-colors">(763) 482-6247</a>
               </div>
             </li>
             <li className="flex items-start gap-4 group">
@@ -79,12 +81,29 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-neutral-500 text-xs font-medium relative z-10">
-        <p>© {currentYear} Simpson & Sons Tree Service. All rights reserved.</p>
-        <div className="flex gap-8">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row md:items-center justify-between items-start gap-6 text-neutral-500 text-xs font-medium relative z-10">
+        <p>
+          Copyright © {currentYear} Simpson &amp; Sons Tree Service, all rights reserved.
+        </p>
+        <p>
+          <span>
+            <span>
+              Big Lake
+            </span>
+            ,&nbsp;
+            <span>
+              MN
+            </span>
+            &nbsp;
+            <span>
+              55309
+            </span>
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            (763) 482-6247
+          </span>
+        </p>
       </div>
 
       {/* Background Accents */}

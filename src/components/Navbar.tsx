@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { TreePine, Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
 export function Navbar() {
@@ -39,16 +39,17 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 h-1 bg-safety origin-left z-50"
         style={{ scaleX }}
       />
-      
+
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 group">
-          <div className="bg-forest p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-            <TreePine className="w-6 h-6 text-white" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-xl tracking-tight leading-none text-forest">SIMPSON & SONS</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-safety">Tree Service</span>
-          </div>
+          <img
+            src="/images/logo-resized.png"
+            alt="Simpson & Sons Tree Service"
+            className={cn(
+              "h-12 w-auto object-contain group-hover:scale-105 transition-transform",
+              !isScrolled
+            )}
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -57,13 +58,18 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-neutral-600 hover:text-forest transition-colors"
+              className={cn(
+                "text-sm font-bold transition-all",
+                isScrolled
+                  ? "text-neutral-600 hover:text-forest"
+                  : "text-white hover:text-safety drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              )}
             >
               {link.name}
             </a>
           ))}
           <a
-            href="tel:763-263-0000"
+            href="tel:763-482-6247"
             className="flex items-center gap-2 bg-forest text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-forest/90 transition-all hover:shadow-lg active:scale-95"
           >
             <Phone className="w-4 h-4" />
@@ -73,7 +79,10 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-forest"
+          className={cn(
+            "md:hidden p-2 transition-colors",
+            isScrolled ? "text-forest" : "text-white drop-shadow-md"
+          )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
@@ -99,7 +108,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="tel:763-263-0000"
+              href="tel:763-482-6247"
               className="flex items-center justify-center gap-2 bg-safety text-white px-5 py-3 rounded-xl text-base font-semibold"
             >
               <Phone className="w-5 h-5" />

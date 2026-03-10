@@ -3,7 +3,7 @@ import { CheckCircle2, Award, ShieldCheck, Users } from 'lucide-react';
 
 export function About() {
   const stats = [
-    { label: 'Founded', value: '1995', icon: Award },
+
     { label: 'Happy Clients', value: '5k+', icon: Users },
     { label: 'Safety Rating', value: '100%', icon: ShieldCheck },
   ];
@@ -21,7 +21,7 @@ export function About() {
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
               <img
                 src="https://picsum.photos/seed/family-owned/800/800"
-                alt="Family Owned Tree Service"
+                alt="Professional Tree Service"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -29,11 +29,6 @@ export function About() {
             {/* Decorative Elements */}
             <div className="absolute -top-12 -left-12 w-48 h-48 bg-safety/20 blur-[80px] rounded-full" />
             <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-forest/20 blur-[80px] rounded-full" />
-            
-            <div className="absolute -bottom-8 -left-8 bg-forest text-white p-8 rounded-3xl shadow-2xl hidden md:block">
-              <p className="text-4xl font-bold mb-1">29</p>
-              <p className="text-sm font-medium text-neutral-300 uppercase tracking-widest">Years of Service</p>
-            </div>
           </motion.div>
 
           <div>
@@ -61,9 +56,8 @@ export function About() {
               transition={{ delay: 0.2 }}
               className="text-neutral-600 text-lg mb-8 leading-relaxed"
             >
-              Founded in 1995, Simpson & Sons Tree Service has grown from a small family operation 
-              into one of Central Minnesota's most trusted tree care providers. Our mission has 
-              remained the same: to provide safe, professional, and reliable tree services 
+              Simpson & Sons Tree Service has grown into one of Central Minnesota's most trusted tree care providers. Our mission has
+              remained the same: to provide safe, professional, and reliable tree services
               while maintaining the highest ISA Certified Arborist standards.
             </motion.p>
 
@@ -71,7 +65,7 @@ export function About() {
               {[
                 'ISA Certified Arborists',
                 'Fully Licensed & Insured',
-                'Family Owned & Operated',
+
                 'State-of-the-Art Equipment',
                 '24/7 Emergency Response',
                 'Free Detailed Estimates',

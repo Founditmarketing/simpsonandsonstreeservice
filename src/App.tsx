@@ -14,15 +14,15 @@ export default function App() {
       <div className="min-h-screen bg-neutral-50 font-sans">
         <Helmet>
           <title>Simpson & Sons Tree Service | Expert Tree Care in Big Lake & Monticello, MN</title>
-          <meta name="description" content="Professional tree removal, pruning, and emergency storm response in Big Lake, Monticello, and surrounding MN regions. Family-owned since 1995, ISA Certified Arborist standards." />
+          <meta name="description" content="Professional tree removal, pruning, and emergency storm response in Big Lake, Monticello, and surrounding MN regions. ISA Certified Arborist standards." />
           <meta property="og:title" content="Simpson & Sons Tree Service | Expert Tree Care" />
-          <meta property="og:description" content="Expert Tree Care in Big Lake & Monticello, MN. Family-owned since 1995, ISA Certified Arborist standards." />
+          <meta property="og:description" content="Expert Tree Care in Big Lake & Monticello, MN. ISA Certified Arborist standards." />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
 
         <Navbar />
-        
+
         <main>
           <Hero />
           <Services />

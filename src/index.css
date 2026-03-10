@@ -5,9 +5,9 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
 
-  --color-forest: #1A3C34;
-  --color-safety: #F97316;
-  --color-safety-hover: #EA580C;
+  --color-forest: #0A0A0A;
+  --color-safety: #DC2626;
+  --color-safety-hover: #B91C1C;
 }
 
 @layer base {

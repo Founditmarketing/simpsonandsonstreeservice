@@ -18,30 +18,21 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-white"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-sm font-medium mb-6"
-          >
-            <span className="w-2 h-2 rounded-full bg-safety animate-pulse" />
-            Family Owned Since 1995
-          </motion.div>
+
 
           <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] mb-6 text-balance">
-            Expert Tree Care in <span className="text-safety">Big Lake</span> & <span className="text-safety">Monticello</span>
+            Tree Removal Isn't Risky With the <span className="text-safety">Right Team</span>
           </h1>
-          
-          <p className="text-lg md:text-xl text-neutral-300 mb-8 max-w-xl leading-relaxed">
-            Professional tree removal, pruning, and emergency storm response. 
-            ISA Certified Arborist standards for your peace of mind.
+
+          <p className="text-lg md:text-xl text-neutral-300 mb-8 leading-relaxed">
+            Trust a renowned tree company in Big Lake & Monticello, MN
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -80,29 +71,17 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-          className="relative"
+          className="relative md:mt-0"
           style={{ y: y1 }}
         >
           <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 aspect-[4/5] md:aspect-auto">
             <img
-              src="https://picsum.photos/seed/tree-service/800/1000"
+              src="/images/dl.png"
               alt="Professional Tree Service"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent" />
-            
-            <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-safety flex items-center justify-center text-white font-bold text-xl">
-                  25+
-                </div>
-                <div>
-                  <p className="text-white font-bold text-lg leading-none">Years Experience</p>
-                  <p className="text-neutral-300 text-sm">Serving Central Minnesota</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Decorative Elements */}

@@ -31,7 +31,7 @@ export function Contact() {
               transition={{ delay: 0.2 }}
               className="text-neutral-600 text-lg mb-12 max-w-lg"
             >
-              Fill out the form below or call us directly. Our team will assess 
+              Fill out the form below or call us directly. Our team will assess
               your needs and provide a professional, no-obligation quote.
             </motion.p>
 
@@ -42,7 +42,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-neutral-500 font-bold uppercase tracking-widest mb-1">Call Us</p>
-                  <a href="tel:763-263-0000" className="text-xl font-bold text-forest hover:text-safety transition-colors">(763) 263-0000</a>
+                  <a href="tel:763-482-6247" className="text-xl font-bold text-forest hover:text-safety transition-colors">(763) 482-6247</a>
                 </div>
               </div>
               <div className="flex items-start gap-4 group">

@@ -70,7 +70,7 @@ export function Services() {
             transition={{ delay: 0.2 }}
             className="text-lg text-neutral-600 leading-relaxed"
           >
-            From routine maintenance to complex removals, our team of ISA certified 
+            From routine maintenance to complex removals, our team of ISA certified
             professionals delivers precision and safety on every project.
           </motion.p>
         </div>
@@ -115,18 +115,18 @@ export function Services() {
             <div className="max-w-xl text-center lg:text-left">
               <h3 className="text-3xl font-bold mb-4">Need Emergency Assistance?</h3>
               <p className="text-neutral-300 text-lg">
-                Our emergency response team is available 24/7 for storm damage and 
+                Our emergency response team is available 24/7 for storm damage and
                 hazardous tree situations in Big Lake and Monticello.
               </p>
             </div>
             <a
-              href="tel:763-263-0000"
+              href="tel:763-482-6247"
               className="bg-safety text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-safety-hover transition-all hover:scale-105 active:scale-95 shadow-xl"
             >
-              Call (763) 263-0000
+              Call (763) 482-6247
             </a>
           </div>
-          
+
           {/* Background Accents */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-safety/20 blur-[80px] rounded-full" />

@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Quote, Star } from 'lucide-react';
 
 const testimonials = [
+  /*
   {
     name: 'Jim Stenglein',
     role: 'Homeowner',
@@ -18,6 +19,32 @@ const testimonials = [
     name: 'Sarah Miller',
     role: 'Resident',
     quote: 'After the storm last summer, they were the only ones who responded quickly. They cleared the fallen branches from our driveway in no time. Highly recommend!',
+    rating: 5,
+  },
+  */
+  {
+    name: "Pete Swanson",
+    quote: "I gotta tell Y'all and every person I know out there to have Simpson & Sons do the work You want done! Amazing hard working Guys!",
+    rating: 5,
+  },
+  {
+    name: "Mike Kittridge",
+    quote: "On time for bid and carried thru with job flawlessly and I was impressed with the quality of work",
+    rating: 5,
+  },
+  {
+    name: "Jim Stenglein",
+    quote: "Had them remove lots of risky tall trees. This crew was extremely efficient, polite and friendly. Their clean up was phenomenal! I will use them again and recommend them to all. Not to mention they were the best price I found.",
+    rating: 5,
+  },
+  {
+    name: "Michael Keglergray",
+    quote: "Did a very fine job, cleaned up 100%. Can only recommend their service",
+    rating: 5,
+  },
+  {
+    name: "Brad LaRoque",
+    quote: "Simpson & sons tree service did a great job removing a 60' ash tree from a very difficult spot lakeside on my property. Working off the ice because of no other access. I would highly recommend them. Also reasonably priced. I",
     rating: 5,
   },
 ];
@@ -57,7 +84,7 @@ export function Testimonials() {
               className="p-10 rounded-[2.5rem] bg-white/5 backdrop-blur-md border border-white/10 flex flex-col relative group hover:bg-white/10 transition-all duration-500"
             >
               <Quote className="w-10 h-10 text-safety/40 absolute top-8 right-8 group-hover:text-safety transition-colors" />
-              
+
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-safety text-safety" />
@@ -74,7 +101,6 @@ export function Testimonials() {
                 </div>
                 <div>
                   <p className="text-white font-bold text-lg leading-none">{testimonial.name}</p>
-                  <p className="text-neutral-400 text-sm mt-1">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>
