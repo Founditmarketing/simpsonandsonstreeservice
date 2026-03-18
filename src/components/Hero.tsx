@@ -7,26 +7,20 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-forest selection:bg-safety/40">
-      {/* Drifting Background Pattern */}
-      <motion.div
-        animate={{
-          x: [0, -20, 0],
-          y: [0, -20, 0]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
-      >
-        <svg className="w-[120%] h-[120%] -left-[10%] -top-[10%] absolute" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </motion.div>
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/Free HD slow motion stock video - Sunlight in the trees [EH4VTCkO4yk].webm" type="video/webm" />
+        </video>
+        {/* Dark Overlay for Readability */}
+        <div className="absolute inset-0 bg-forest/60 backdrop-blur-[2px]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         <motion.div

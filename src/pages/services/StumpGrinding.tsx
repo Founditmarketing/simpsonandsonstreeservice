@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, Phone, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, Phone } from 'lucide-react';
 import { Contact } from '../../components/Contact';
 import { TextureOverlay } from '../../components/TextureOverlay';
 import { cn } from '@/src/lib/utils';
@@ -10,13 +10,13 @@ export default function StumpGrinding() {
     return (
         <div className="min-h-screen bg-neutral-50 font-sans text-balance">
             {/* Service Hero */}
-            <section className="relative py-32 bg-forest overflow-hidden min-h-[70vh] flex items-center">
+            <section className="relative py-42 bg-forest overflow-hidden min-h-[70vh] flex items-center">
                 <div className="absolute inset-0 z-0">
                     <motion.img
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 0.3 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        src="/images/2021/02/81199332_124652252346978_2918249124501389312_o.jpg"
+                        src="/images/shutterstock_1402669742_1613591638_e1d2c8fac752d1c8ea1e90ff50996cc3d8.jpg"
                         alt="Stump Grinding"
                         className="w-full h-full object-cover"
                     />
@@ -29,19 +29,6 @@ export default function StumpGrinding() {
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                     <div className="max-w-4xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <Link
-                                to="/"
-                                className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-12 group"
-                            >
-                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                <span className="text-sm font-bold uppercase tracking-[0.2em]">Back to Home</span>
-                            </Link>
-                        </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -50,11 +37,34 @@ export default function StumpGrinding() {
                         >
                             Stump <br />
                             <span className="relative inline-block translate-x-12 translate-y-4">
-                                <span className="text-amber-500 font-black block">Grinding</span>
+                                {/* Silver Grinder Teeth - Curved around G (Responsive em units) */}
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 translate-x-8/15 animate-grinding w-[0.4em] h-[1em] pointer-events-none">
+                                    {[...Array(5)].map((_, i) => {
+                                        const angle = ((i - 2) * 8) * (Math.PI / 180);
+                                        const radius = 0.5; // in em
+                                        const tx = (-Math.cos(angle) * radius + radius - 0.16) + 'em';
+                                        const ty = (Math.sin(angle) * (radius * 1.3)) + 'em';
+                                        return (
+                                            <span
+                                                key={i}
+                                                className="absolute w-[0.1em] h-[0.08em] bg-neutral-400 border border-white/20 shadow-[inset_-1px_0_2px_rgba(0,0,0,0.5)]"
+                                                style={{
+                                                    left: tx,
+                                                    top: `calc(50% + ${ty})`,
+                                                    transform: `translate(-50%, -50%) rotate(${-angle * (180 / Math.PI)}deg)`,
+                                                    clipPath: 'polygon(0 15%, 100% 0, 100% 100%, 0 85%)'
+                                                }}
+                                            />
+                                        );
+                                    })}
+                                </span>
+
+                                <span className="text-amber-500 font-black block animate-grinding">Grinding</span>
 
                                 <span
-                                    className="absolute inset-0 pointer-events-none select-none"
+                                    className="absolute inset-0 pointer-events-none select-none animate-grinding"
                                     style={{
+                                        background: 'linear-gradient(to right, #797b7eff 0%, #d1d5db 8%, transparent 15%)',
                                         WebkitBackgroundClip: 'text',
                                         backgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
@@ -62,8 +72,58 @@ export default function StumpGrinding() {
                                     }}
                                     aria-hidden="true"
                                 >
-                                    Grinding
+                                    G
                                 </span>
+
+                                {/* Grinding Glow - Sync with 4s loop (1.2s - 2.4s) */}
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{
+                                        opacity: [0, 0.5, 0.25, 0.65, 0.4, 0.55, 0.25, 0]
+                                    }}
+                                    transition={{
+                                        duration: 1.3,
+                                        delay: 1.2,
+                                        times: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1],
+                                        repeat: Infinity,
+                                        repeatDelay: 2.7,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 w-16 h-48 pointer-events-none"
+                                    style={{
+                                        background: 'radial-gradient(circle, rgba(139, 69, 19, 0.6) 0%, transparent 70%)',
+                                        filter: 'blur(10px)',
+                                        x: -40
+                                    }}
+                                />
+
+                                {/* Flying Wood Chips - Sync with 4s grinding loop (shaking phase 1.2s - 2.4s) */}
+                                {[...Array(24)].map((_, i) => (
+                                    <motion.div
+                                        key={`chip-${i}`}
+                                        initial={{ opacity: 0, x: -40, y: 30 - (Math.random() * 60), rotate: 0 }}
+                                        animate={{
+                                            opacity: [0, 1, 1, 0],
+                                            x: 40 + Math.random() * 140, // Fly to the right, starting from the rammed left position
+                                            y: (Math.random() - 0.5) * 180,
+                                            rotate: Math.random() * 180,
+                                        }}
+                                        transition={{
+                                            duration: 0.45,
+                                            delay: 1.2 + (i * 0.04), // Starts at 1.2 (30%), ends around 2.1s (52%)
+                                            times: [0, 0.4, 0.6, 1], // Instant in, stay visible, then fast fade
+                                            repeat: Infinity,
+                                            repeatDelay: 3.55, // 0.45 + 3.55 = 4.0
+                                            ease: "linear"
+                                        }}
+                                        style={{
+                                            clipPath: i % 3 === 0 ? 'polygon(0 0, 100% 50%, 0 100%)' : i % 3 === 1 ? 'polygon(50% 0, 0 100%, 100% 100%)' : 'polygon(20% 0, 100% 20%, 70% 100%, 0 80%)',
+                                            left: '0px',
+                                            top: '40%'
+                                        }}
+                                        className={`absolute -ml-5 w-3 h-2 ${i % 2 === 0 ? 'bg-[#C8A472]' : 'bg-[#A0522D]'}`}
+                                    />
+                                ))}
                             </span>
                         </motion.h1>
 

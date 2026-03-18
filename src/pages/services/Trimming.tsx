@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, Phone, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, Phone } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import { Contact } from '../../components/Contact';
 import { TextureOverlay } from '../../components/TextureOverlay';
@@ -20,13 +20,13 @@ export default function Trimming() {
     return (
         <div className="min-h-screen bg-neutral-50 font-sans text-balance">
             {/* Service Hero */}
-            <section className="relative py-32 bg-forest overflow-hidden min-h-[70vh] flex items-center">
+            <section className="relative py-42 bg-forest overflow-hidden min-h-[70vh] flex items-center">
                 <div className="absolute inset-0 z-0">
                     <motion.img
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 0.3 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        src="/images/2022/11/276003202_516813336464199_8449236419851285306_n.jpg"
+                        src="/images/shutterstock_111443762_1613591556_e12bc26a5845a7959735cc7d785d00d400.jpg"
                         alt="Tree & Shrub Trimming"
                         className="w-full h-full object-cover"
                     />
@@ -39,19 +39,6 @@ export default function Trimming() {
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                     <div className="max-w-4xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <Link
-                                to="/"
-                                className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-12 group"
-                            >
-                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                <span className="text-sm font-bold uppercase tracking-[0.2em]">Back to Home</span>
-                            </Link>
-                        </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}

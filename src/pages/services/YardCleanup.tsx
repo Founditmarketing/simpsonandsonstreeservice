@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/src/lib/utils';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, Phone, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, Phone } from 'lucide-react';
 import { Contact } from '../../components/Contact';
 import { TextureOverlay } from '../../components/TextureOverlay';
 
@@ -10,13 +10,13 @@ export default function YardCleanup() {
     return (
         <div className="min-h-screen bg-neutral-50 font-sans text-balance">
             {/* Service Hero */}
-            <section className="relative py-32 bg-forest overflow-hidden min-h-[70vh] flex items-center">
+            <section className="relative py-42 bg-forest overflow-hidden min-h-[70vh] flex items-center">
                 <div className="absolute inset-0 z-0">
                     <motion.img
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 0.3 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        src="/images/2025/02/468244132_532895169626663_2868159616543966316_n.jpg"
+                        src="/images/shutterstock_40808218_1613591212_e1f3efc109cdd5f47e9238110897e051f6.jpg"
                         alt="Yard Cleanups"
                         className="w-full h-full object-cover"
                     />
@@ -29,19 +29,6 @@ export default function YardCleanup() {
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                     <div className="max-w-4xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <Link
-                                to="/"
-                                className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-12 group"
-                            >
-                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                <span className="text-sm font-bold uppercase tracking-[0.2em]">Back to Home</span>
-                            </Link>
-                        </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -51,6 +38,71 @@ export default function YardCleanup() {
                             Yard <br />
                             <span className="relative inline-block translate-x-12 translate-y-4">
                                 <span className="text-slate-300 font-black block">Cleanups</span>
+
+                                {/* Leaf Animation - 6s loop: Blow in -> Settle -> Blow out (Responsive em units) */}
+                                {[...Array(30)].map((_, i) => {
+                                    const delay = i * 0.05;
+                                    const randomXOffset = 0.4 + i * 0.14 - (Math.random() * 0.4);
+                                    const randomStartX = -1.5 + (Math.random() * 0.8);
+                                    const landingY = 0.75 + (Math.random() * 0.075);
+                                    const exitX = 2 + (Math.random() * 0.5);
+                                    const exitY = 0.2 + (Math.random() * 0.2);
+                                    const randomAngle = 90 - (Math.random() * 180);
+
+                                    return (
+                                        <motion.div
+                                            key={`leaf-${i}`}
+                                            initial={{ opacity: 0, x: '-1em', y: '-0.4em', rotate: 0 }}
+                                            animate={{
+                                                opacity: [0, 1, 1, 1, 0],
+                                                x: [randomStartX + 'em', 0, 0, exitX + 'em'],
+                                                y: ['0.1em', landingY + 'em', landingY + 'em', exitY + 'em'],
+                                                rotate: [0, randomAngle, randomAngle, randomAngle + 180]
+                                            }}
+                                            transition={{
+                                                duration: 5,
+                                                times: [0, 0.25, 0.65, 0.75, 1],
+                                                delay: delay,
+                                                repeat: Infinity,
+                                                repeatDelay: 3,
+                                                ease: "easeInOut"
+                                            }}
+                                            className={cn(
+                                                "absolute w-[0.16em] h-[0.1em] pointer-events-none z-10",
+                                                i % 3 === 0 ? "bg-green-600/60" : i % 3 === 1 ? "bg-emerald-700/60" : "bg-amber-800/60"
+                                            )}
+                                            style={{
+                                                clipPath: i % 2 === 0
+                                                    ? 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)' // Broad leaf
+                                                    : 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', // Narrow leaf
+                                                left: `${randomXOffset}em`,
+                                                top: '0%'
+                                            }}
+                                        />
+                                    );
+                                })}
+
+                                {/* Sparkle Animation - Triggers after leaves clear (10s total cycle) */}
+                                <motion.div
+                                    initial={{ scale: 0, opacity: 0, rotate: 0 }}
+                                    animate={{
+                                        scale: [0, 0, 1.2, 1, 0],
+                                        opacity: [0, 0, 1, 1, 0],
+                                        rotate: [0, 0, 90, 180, 320]
+                                    }}
+                                    transition={{
+                                        duration: 8,
+                                        times: [0, 0.81, 0.85, 0.92, 1],
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="absolute -top-2 -right-2 w-6 h-6 pointer-events-none z-20"
+                                >
+                                    <div
+                                        className="w-full h-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.9)]"
+                                        style={{ clipPath: 'polygon(50% 0%, 61% 35%, 100% 50%, 61% 65%, 50% 100%, 39% 65%, 0% 50%, 39% 35%)' }}
+                                    />
+                                </motion.div>
                             </span>
                         </motion.h1>
 

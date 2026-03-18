@@ -14,16 +14,14 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         className="prose prose-lg max-w-none text-neutral-600"
                     >
-                        <h2 className="text-4xl font-bold text-forest mb-8">Our Commitment to You</h2>
-                        <p className="mb-6">
-                            At Simpson & Sons Tree Service, we believe that professional tree care should be accessible,
-                            safe, and transparent. Our team is dedicated to providing the highest level of service
-                            to our neighbors in Big Lake, Monticello, and the surrounding areas.
+                        <h2 className="text-4xl font-bold text-forest mb-2">
+                            Do Your Trees Need a Little Extra Care?
+                        </h2>
+                        <p className="mb-6 text-lg text-neutral-400 font-medium tracking-wide">
+                            Make time for professional tree services in Big Lake & Monticello, MN
                         </p>
                         <p className="mb-6">
-                            Whether you're dealing with a hazardous tree leaning toward your home or simply want to
-                            beautify your landscape with professional pruning, we bring the right equipment and
-                            expertise to every jobsite.
+                            A beautiful landscape can easily be thrown off by fallen tree limbs and unsightly stumps. You can restore your landscape's neat appearance when you get the proper tree services. Luckily, Simpson & Sons Tree Service can help you out. Our trusted tree company is based in Big Lake, MN and is known for exceptional service. We work efficiently and safely at all times, paying attention to every detail. You can call on us for both commercial and residential work - it's all about your needs.
                         </p>
                     </motion.div>
                 </div>

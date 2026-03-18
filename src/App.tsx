@@ -10,6 +10,7 @@ import StumpGrinding from './pages/services/StumpGrinding';
 import Trimming from './pages/services/Trimming';
 import YardCleanup from './pages/services/YardCleanup';
 import DrawPage from './pages/DrawPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
@@ -31,12 +32,13 @@ export default function App() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutPage />} />
+              {/* <Route path="/about" element={<AboutPage />} /> */}
               <Route path="/services/total-tree-removal" element={<TreeRemoval />} />
               <Route path="/services/stump-grinding" element={<StumpGrinding />} />
               <Route path="/services/tree-and-shrub-trimming" element={<Trimming />} />
               <Route path="/services/yard-cleanup" element={<YardCleanup />} />
               <Route path="/draw" element={<DrawPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
 
