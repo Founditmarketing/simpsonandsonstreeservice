@@ -58,6 +58,7 @@ export function Navbar() {
     { name: 'Services', href: isHome ? '#services' : '/#services', hasDropdown: true },
     { name: 'Gallery', href: isHome ? '#gallery' : '/#gallery' },
     { name: 'About', href: '/about' },
+    { name: 'Bi-Monthly Draw', href: '/draw' },
     { name: 'Reviews', href: isHome ? '#reviews' : '/#reviews' },
   ];
 
@@ -79,7 +80,7 @@ export function Navbar() {
             src="/images/logo-resized.png"
             alt="Simpson & Sons Tree Service"
             className={cn(
-              "h-12 w-auto object-contain group-hover:scale-105 transition-transform",
+              "md:h-20 h-14 w-auto object-contain group-hover:scale-105 transition-transform",
               !isScrolled
             )}
           />
@@ -213,27 +214,32 @@ export function Navbar() {
                   <motion.div
                     initial={false}
                     animate={{ height: isServicesMobileOpen ? "auto" : 0, opacity: isServicesMobileOpen ? 1 : 0 }}
-                    className="overflow-hidden flex flex-col gap-2 pl-4"
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden bg-neutral-900 rounded-xl mt-2"
                   >
-                    {services.map((service) => (
-                      <Link
-                        key={service.title}
-                        to={service.href}
-                        className="py-3 flex items-center gap-4 text-neutral-600 font-bold active:text-safety group"
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setIsServicesMobileOpen(false);
-                        }}
-                      >
-                        <div className={cn(
-                          "w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center transition-colors group-active:bg-safety/10",
-                          service.color
-                        )}>
-                          <service.icon className="w-5 h-5" />
-                        </div>
-                        {service.title}
-                      </Link>
-                    ))}
+                    <div className="flex flex-col p-2">
+                      {services.map((service) => (
+                        <Link
+                          key={service.title}
+                          to={service.href}
+                          className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group"
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            setIsServicesMobileOpen(false);
+                          }}
+                        >
+                          <div className={cn(
+                            "w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center transition-transform group-hover:scale-105",
+                            service.color
+                          )}>
+                            <service.icon className="w-5 h-5" />
+                          </div>
+                          <span className="text-sm font-bold text-white group-hover:text-safety transition-colors">
+                            {service.title}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </div>

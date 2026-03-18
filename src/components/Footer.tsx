@@ -36,6 +36,7 @@ export function Footer() {
             <li><a href={isHome ? "#services" : "/#services"} className="hover:text-safety transition-colors">Our Services</a></li>
             <li><a href={isHome ? "#gallery" : "/#gallery"} className="hover:text-safety transition-colors">Work Gallery</a></li>
             <li><Link to="/about" className="hover:text-safety transition-colors">About Us</Link></li>
+            <li><Link to="/draw" className="hover:text-safety transition-colors">Bi-Monthly Draw</Link></li>
             <li><a href={isHome ? "#reviews" : "/#reviews"} className="hover:text-safety transition-colors">Customer Reviews</a></li>
           </ul>
         </div>

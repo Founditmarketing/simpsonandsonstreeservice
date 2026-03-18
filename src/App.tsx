@@ -5,7 +5,11 @@ import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
-import ServicePage from './pages/ServicePage';
+import TreeRemoval from './pages/services/TreeRemoval';
+import StumpGrinding from './pages/services/StumpGrinding';
+import Trimming from './pages/services/Trimming';
+import YardCleanup from './pages/services/YardCleanup';
+import DrawPage from './pages/DrawPage';
 
 export default function App() {
   return (
@@ -28,7 +32,11 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/services/:serviceId" element={<ServicePage />} />
+              <Route path="/services/total-tree-removal" element={<TreeRemoval />} />
+              <Route path="/services/stump-grinding" element={<StumpGrinding />} />
+              <Route path="/services/tree-and-shrub-trimming" element={<Trimming />} />
+              <Route path="/services/yard-cleanup" element={<YardCleanup />} />
+              <Route path="/draw" element={<DrawPage />} />
             </Routes>
           </main>
 
