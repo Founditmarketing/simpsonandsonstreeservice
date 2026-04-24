@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block internal/utility routes from indexing
+Disallow: /draw
+
+# Sitemap location
+Sitemap: https://www.simpsonandsonstreeservice.com/sitemap.xml
