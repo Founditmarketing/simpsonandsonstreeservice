@@ -17,7 +17,7 @@ const schema = {
     "address": { "@type": "PostalAddress", "addressLocality": "Big Lake", "addressRegion": "MN" }
   },
   "description": "Professional yard cleanup including branch removal, debris hauling, and post-storm cleanup for residential and commercial properties in Big Lake, Monticello, and surrounding areas.",
-  "url": "https://simpsonandsonstreeservice.com/services/yard-cleanup-big-lake-mn"
+  "url": "https://www.simpsonandsonstreeservice.com/services/yard-cleanup-big-lake-mn"
 };
 
 const faqs = [
@@ -27,14 +27,41 @@ const faqs = [
   { q: "How do I get a quote?", a: "Call (763) 482-6247 or use our contact form. We'll visit your property and provide a free estimate before any work begins." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Yard Cleanup", "item": "https://www.simpsonandsonstreeservice.com/services/yard-cleanup-big-lake-mn" }
+  ]
+};
+
 export default function YardCleanup() {
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       <Helmet>
         <title>Yard Cleanup Services in Big Lake & Monticello, MN | Simpson & Sons</title>
         <meta name="description" content="Professional yard cleanup services from Simpson & Sons — serving Big Lake, Monticello, and surrounding Minnesota communities. Branches, debris, post-storm cleanup. Call (763) 482-6247." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/yard-cleanup-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/yard-cleanup-big-lake-mn" />
+        <meta property="og:title" content="Yard Cleanup Services in Big Lake & Monticello, MN | Simpson & Sons" />
+        <meta property="og:description" content="Professional yard cleanup services from Simpson & Sons — serving Big Lake, Monticello, and surrounding Minnesota communities. Branches, debris, post-storm cleanup. Call (763) 482-6247." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/yard-cleanup-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/ss_yard.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

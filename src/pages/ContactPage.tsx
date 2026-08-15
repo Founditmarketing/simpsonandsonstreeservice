@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Clock, MapPin } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { TextureOverlay } from '../components/TextureOverlay';
 import { Contact } from '../components/Contact';
 import type { ServiceTown } from '../components/ServiceAreaMap';
@@ -22,10 +23,31 @@ const SERVICE_TOWNS: ServiceTown[] = [
   { name: 'St. Cloud',   coords: [45.5579, -94.1632] },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.simpsonandsonstreeservice.com/contact" }
+  ]
+};
+
 export default function ContactPage() {
     const flyToRef = useRef<((coords: [number, number], zoom?: number) => void) | null>(null);
     return (
         <div className="min-h-screen bg-neutral-50 font-sans text-balance">
+            <Helmet>
+                <title>Contact Us | Simpson & Sons Tree Service — Big Lake & Monticello, MN</title>
+                <meta name="description" content="Get a free estimate from Simpson & Sons Tree Service. Serving Big Lake, Monticello, and within 50 miles. Call (763) 482-6247 or send us a message." />
+                <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/contact" />
+                <meta property="og:title" content="Contact Us | Simpson & Sons Tree Service — Big Lake & Monticello, MN" />
+                <meta property="og:description" content="Get a free estimate from Simpson & Sons Tree Service. Serving Big Lake, Monticello, and within 50 miles. Call (763) 482-6247 or send us a message." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/contact" />
+                <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/2025/02/468244132_532895169626663_2868159616543966316_n.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+            </Helmet>
             {/* Hero Section */}
             <section className="relative pt-32 pb-24 bg-forest overflow-hidden min-h-[50vh] flex items-center">
                 <div className="absolute inset-0 z-0">

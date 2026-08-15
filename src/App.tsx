@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import ContactPopup from './components/ContactPopup';
@@ -21,15 +21,6 @@ function AppInner() {
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
-      <Helmet>
-        <title>Simpson & Sons Tree Service | Tree Removal, Pruning & Stump Grinding — Big Lake, MN</title>
-        <meta name="description" content="Professional tree removal, pruning, stump grinding, and emergency storm response in Big Lake, Monticello, and within 50 miles. Serving residential and commercial properties. Call (763) 482-6247." />
-        <meta property="og:title" content="Simpson & Sons Tree Service | Big Lake & Monticello, MN" />
-        <meta property="og:description" content="Tree removal, pruning, stump grinding, and emergency service in Big Lake & Monticello, MN." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
-
       <Navbar />
 
       <main>

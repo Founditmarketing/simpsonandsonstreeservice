@@ -17,7 +17,7 @@ const schema = {
     "address": { "@type": "PostalAddress", "addressLocality": "Big Lake", "addressRegion": "MN" }
   },
   "description": "Fall leaf removal and seasonal debris cleanup for homes and businesses in Big Lake, Monticello, and surrounding Minnesota communities.",
-  "url": "https://simpsonandsonstreeservice.com/services/leaf-removal-big-lake-mn"
+  "url": "https://www.simpsonandsonstreeservice.com/services/leaf-removal-big-lake-mn"
 };
 
 const faqs = [
@@ -28,14 +28,41 @@ const faqs = [
   { q: "Do you clean leaves from garden beds and tree rings too?", a: "Yes. We clear leaves from around landscaping, shrub beds, and tree bases where buildup is most problematic." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Leaf Removal", "item": "https://www.simpsonandsonstreeservice.com/services/leaf-removal-big-lake-mn" }
+  ]
+};
+
 export default function LeafRemoval() {
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       <Helmet>
         <title>Leaf Removal & Debris Cleanup — Big Lake, MN | Simpson & Sons</title>
         <meta name="description" content="Fall leaf cleanup, debris removal, and seasonal yard maintenance in Big Lake, Monticello, and surrounding areas. Simpson & Sons Tree Service — call (763) 482-6247 for a free estimate." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/leaf-removal-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/leaf-removal-big-lake-mn" />
+        <meta property="og:title" content="Leaf Removal & Debris Cleanup — Big Lake, MN | Simpson & Sons" />
+        <meta property="og:description" content="Fall leaf cleanup, debris removal, and seasonal yard maintenance in Big Lake, Monticello, and surrounding areas. Simpson & Sons Tree Service — call (763) 482-6247 for a free estimate." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/leaf-removal-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/ss_leaf.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

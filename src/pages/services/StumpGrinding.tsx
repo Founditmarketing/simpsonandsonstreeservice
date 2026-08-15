@@ -17,7 +17,7 @@ const schema = {
     "address": { "@type": "PostalAddress", "addressLocality": "Big Lake", "addressRegion": "MN" }
   },
   "description": "Professional stump grinding that eliminates tree stumps below grade, prevents regrowth, and removes tripping hazards on residential and commercial properties in Big Lake and Monticello, MN.",
-  "url": "https://simpsonandsonstreeservice.com/services/stump-grinding-big-lake-mn",
+  "url": "https://www.simpsonandsonstreeservice.com/services/stump-grinding-big-lake-mn",
   "areaServed": [{ "@type": "City", "name": "Big Lake" }, { "@type": "City", "name": "Monticello" }]
 };
 
@@ -29,14 +29,41 @@ const faqs = [
   { q: "Is stump grinding the same as stump removal?", a: "No. Grinding chips the stump below grade. Full removal extracts the entire root ball, which is more invasive and usually unnecessary for most properties." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Stump Grinding", "item": "https://www.simpsonandsonstreeservice.com/services/stump-grinding-big-lake-mn" }
+  ]
+};
+
 export default function StumpGrinding() {
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       <Helmet>
         <title>Stump Grinding in Big Lake & Monticello, MN | Simpson & Sons Tree Service</title>
         <meta name="description" content="Remove unsightly tree stumps with professional stump grinding by Simpson & Sons. Serving Big Lake, Monticello, and within 50 miles. Prevents regrowth and pests. Call (763) 482-6247." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/stump-grinding-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/stump-grinding-big-lake-mn" />
+        <meta property="og:title" content="Stump Grinding in Big Lake & Monticello, MN | Simpson & Sons Tree Service" />
+        <meta property="og:description" content="Remove unsightly tree stumps with professional stump grinding by Simpson & Sons. Serving Big Lake, Monticello, and within 50 miles. Prevents regrowth and pests. Call (763) 482-6247." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/stump-grinding-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/ss_stump.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

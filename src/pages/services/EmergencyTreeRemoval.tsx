@@ -17,7 +17,7 @@ const schema = {
     "address": { "@type": "PostalAddress", "addressLocality": "Big Lake", "addressRegion": "MN" }
   },
   "description": "24-hour emergency tree removal for storm damage, fallen trees, and hazardous tree situations in Big Lake, Monticello, and within 50 miles of Big Lake, MN.",
-  "url": "https://simpsonandsonstreeservice.com/services/emergency-tree-removal-big-lake-mn",
+  "url": "https://www.simpsonandsonstreeservice.com/services/emergency-tree-removal-big-lake-mn",
   "availableChannel": {
     "@type": "ServiceChannel",
     "hoursAvailable": {
@@ -42,14 +42,41 @@ const faqs = [
   { q: "What if the tree is near or on a power line?", a: "Do not approach. Call your utility company first to shut off power to the line, then call us. We will not work on live lines." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Emergency Tree Removal", "item": "https://www.simpsonandsonstreeservice.com/services/emergency-tree-removal-big-lake-mn" }
+  ]
+};
+
 export default function EmergencyTreeRemoval() {
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       <Helmet>
         <title>24/7 Emergency Tree Removal — Big Lake, MN | Simpson & Sons</title>
         <meta name="description" content="Storm damage? Tree on your roof or blocking your driveway? Simpson & Sons provides 24/7 emergency tree removal in Big Lake, Monticello, and within 50 miles. Call now: (763) 482-6247." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/emergency-tree-removal-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/emergency-tree-removal-big-lake-mn" />
+        <meta property="og:title" content="24/7 Emergency Tree Removal — Big Lake, MN | Simpson & Sons" />
+        <meta property="og:description" content="Storm damage? Tree on your roof or blocking your driveway? Simpson & Sons provides 24/7 emergency tree removal in Big Lake, Monticello, and within 50 miles. Call now: (763) 482-6247." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/emergency-tree-removal-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/2025/02/463868846_511436665105847_1626324754473645511_n.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero — urgent, high-contrast */}

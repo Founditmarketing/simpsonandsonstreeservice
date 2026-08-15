@@ -17,7 +17,7 @@ const schema = {
     "address": { "@type": "PostalAddress", "addressLocality": "Big Lake", "addressRegion": "MN" }
   },
   "description": "Shrub trimming, hedge shaping, and shrub removal for residential and commercial properties in Big Lake and Monticello, MN.",
-  "url": "https://simpsonandsonstreeservice.com/services/shrub-trimming-big-lake-mn"
+  "url": "https://www.simpsonandsonstreeservice.com/services/shrub-trimming-big-lake-mn"
 };
 
 const faqs = [
@@ -27,6 +27,25 @@ const faqs = [
   { q: "Can you shape shrubs into specific forms?", a: "Yes — formal hedges, rounded forms, or natural shapes. We'll discuss what you want before we start." },
   { q: "Do you also remove shrubs completely?", a: "Yes. We remove the shrub and root ball, leaving the area ready for replanting or lawn restoration." },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Shrub Trimming", "item": "https://www.simpsonandsonstreeservice.com/services/shrub-trimming-big-lake-mn" }
+  ]
+};
 
 const timingGuide = [
   { type: "Spring-flowering shrubs", examples: "Lilac, Forsythia, Viburnum", timing: "Trim immediately after bloom (May–June)" },
@@ -41,8 +60,16 @@ export default function ShrubTrimming() {
       <Helmet>
         <title>Shrub Trimming & Shrub Removal — Big Lake, MN | Simpson & Sons</title>
         <meta name="description" content="Keep your hedges, bushes, and shrubs neat and healthy with professional shrub trimming by Simpson & Sons. Serving Big Lake & Monticello, MN. Call for a free estimate: (763) 482-6247." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/shrub-trimming-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/shrub-trimming-big-lake-mn" />
+        <meta property="og:title" content="Shrub Trimming & Shrub Removal — Big Lake, MN | Simpson & Sons" />
+        <meta property="og:description" content="Keep your hedges, bushes, and shrubs neat and healthy with professional shrub trimming by Simpson & Sons. Serving Big Lake & Monticello, MN. Call for a free estimate: (763) 482-6247." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/shrub-trimming-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/ss_shrub.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

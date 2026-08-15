@@ -23,7 +23,7 @@ const schema = {
     "geo": { "@type": "GeoCoordinates", "latitude": 45.3336, "longitude": -93.7253 }
   },
   "description": "Professional tree removal for dead, diseased, hazardous, or unwanted trees on residential and commercial properties throughout Big Lake, Monticello, and surrounding Minnesota communities.",
-  "url": "https://simpsonandsonstreeservice.com/services/tree-removal-big-lake-mn",
+  "url": "https://www.simpsonandsonstreeservice.com/services/tree-removal-big-lake-mn",
   "areaServed": [
     { "@type": "City", "name": "Big Lake" },
     { "@type": "City", "name": "Monticello" },
@@ -39,14 +39,41 @@ const faqs = [
   { q: "Can you remove large trees close to my house?", a: "Yes. We regularly remove trees in tight spaces near structures. Our crew is experienced in sectional removal to protect your property." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tree Removal", "item": "https://www.simpsonandsonstreeservice.com/services/tree-removal-big-lake-mn" }
+  ]
+};
+
 export default function TreeRemoval() {
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       <Helmet>
         <title>Tree Removal in Big Lake & Monticello, MN | Simpson & Sons Tree Service</title>
         <meta name="description" content="Simpson & Sons Tree Service removes hazardous, dead, or unwanted trees on residential and commercial properties throughout Big Lake, Monticello, and within 50 miles. Free estimates. Call (763) 482-6247." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/tree-removal-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/tree-removal-big-lake-mn" />
+        <meta property="og:title" content="Tree Removal in Big Lake & Monticello, MN | Simpson & Sons Tree Service" />
+        <meta property="og:description" content="Simpson & Sons Tree Service removes hazardous, dead, or unwanted trees on residential and commercial properties throughout Big Lake, Monticello, and within 50 miles. Free estimates. Call (763) 482-6247." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/tree-removal-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/ss_removal.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

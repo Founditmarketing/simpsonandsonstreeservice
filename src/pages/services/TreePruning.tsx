@@ -17,7 +17,7 @@ const schema = {
     "address": { "@type": "PostalAddress", "addressLocality": "Big Lake", "addressRegion": "MN" }
   },
   "description": "Professional tree pruning and crown cleaning for healthy, safe, and structurally sound trees in Big Lake, Monticello, and surrounding Minnesota communities.",
-  "url": "https://simpsonandsonstreeservice.com/services/tree-pruning-big-lake-mn"
+  "url": "https://www.simpsonandsonstreeservice.com/services/tree-pruning-big-lake-mn"
 };
 
 const pruningTypes = [
@@ -35,14 +35,41 @@ const faqs = [
   { q: "Can you prune trees that are close to power lines?", a: "For branches within 10 feet of power lines, we coordinate with the utility company. We do not work on energized lines." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.simpsonandsonstreeservice.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tree Pruning", "item": "https://www.simpsonandsonstreeservice.com/services/tree-pruning-big-lake-mn" }
+  ]
+};
+
 export default function TreePruning() {
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       <Helmet>
         <title>Tree Pruning Services in Big Lake & Monticello, MN | Simpson & Sons</title>
         <meta name="description" content="Routine tree pruning keeps your trees healthy, safe, and beautiful. Simpson & Sons serves Big Lake, Monticello, and surrounding areas in Minnesota. Call (763) 482-6247 for a free estimate." />
-        <link rel="canonical" href="https://simpsonandsonstreeservice.com/services/tree-pruning-big-lake-mn" />
+        <link rel="canonical" href="https://www.simpsonandsonstreeservice.com/services/tree-pruning-big-lake-mn" />
+        <meta property="og:title" content="Tree Pruning Services in Big Lake & Monticello, MN | Simpson & Sons" />
+        <meta property="og:description" content="Routine tree pruning keeps your trees healthy, safe, and beautiful. Simpson & Sons serves Big Lake, Monticello, and surrounding areas in Minnesota. Call (763) 482-6247 for a free estimate." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/services/tree-pruning-big-lake-mn" />
+        <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/ss_pruning.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

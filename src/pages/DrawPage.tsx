@@ -94,6 +94,13 @@ export default function DrawPage() {
             <Helmet>
                 <title>Bi-Monthly Drawing | Simpson & Sons Tree Service</title>
                 <meta name="description" content="Enter our bi-monthly drawing for a chance to win tree service discounts and prizes. Free to enter for Big Lake & Monticello residents." />
+                <meta name="robots" content="noindex, nofollow" />
+                <meta property="og:title" content="Bi-Monthly Drawing | Simpson & Sons Tree Service" />
+                <meta property="og:description" content="Enter our bi-monthly drawing for a chance to win tree service discounts and prizes. Free to enter for Big Lake & Monticello residents." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.simpsonandsonstreeservice.com/draw" />
+                <meta property="og:image" content="https://www.simpsonandsonstreeservice.com/images/dl.png" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
 
             {/* Premium Wood-Grain/Tree-Ring Background Texture */}
